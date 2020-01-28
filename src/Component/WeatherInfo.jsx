@@ -1,12 +1,12 @@
 import React from "react";
 
-const WeatherInfo = ({ weatherData }) => {
-  console.log(weatherData.weather);
+const WeatherInfo = ({ location, humidity, temperature, condition }) => {
   return (
     <ul>
-      <li>Location: {weatherData.name}</li>
-      {/* <li> Temperature: {weatherData.main.temp}</li> */}
-      {/* <li>condition: {weatherData.weather}</li> */}
+      <li>Location: {location}</li>
+      <li>Humidity: {humidity}</li>
+      <li> Temperature: {temperature} &deg;c</li>
+      <li>Condition: {condition}</li>
     </ul>
   );
 };
