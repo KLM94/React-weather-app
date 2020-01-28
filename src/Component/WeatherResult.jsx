@@ -1,6 +1,9 @@
 import React, { Component } from "react";
+import axios from "axios";
+import WeatherInput from "./WeatherInput";
+import API_KEY from "../api-key";
+import WeatherInfo from "./WeatherInfo";
 
-const API_KEY = "673fcaf3e33a93347dd3e0b062564252";
 class WeatherResult extends Component {
   state = {
     city: "birmingham",
@@ -8,16 +11,22 @@ class WeatherResult extends Component {
   };
 
   componentDidMount() {
-    fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${this.state.city}&units=metric&apikey=${API_KEY}`
-    )
-      .then(buffer => buffer.json())
-      .then(response => console.log(response))
+    axios
+      .get(
+        `http://api.openweathermap.org/data/2.5/weather?q=${this.state.city}&units=metric&apikey=${API_KEY}`
+      )
+      .then(response => this.setState({ weatherData: response.data }))
       .catch(err => console.dir(err));
   }
 
   render() {
-    return <div></div>;
+    console.log(this.state.weatherData);
+    return (
+      <div>
+        <WeatherInput />
+        <WeatherInfo weatherData={this.state.weatherData} />
+      </div>
+    );
   }
 }
 
