@@ -8,15 +8,22 @@ class WeatherInput extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
-          City:
+        <div className="input">
+          <label className="enter-city-text">
+            Enter your nearest city to find out the latest weather reports
+            <br></br>
+          </label>
           <input
+            className="city"
             type="text"
             onChange={this.handleChange}
             value={this.state.searchInput}
           ></input>
-        </label>
-        <button type="submit">Search</button>
+
+          <button className="submit" type="submit">
+            Search
+          </button>
+        </div>
       </form>
     );
   }

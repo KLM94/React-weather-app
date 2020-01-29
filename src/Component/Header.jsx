@@ -6,8 +6,14 @@ class Header extends Component {
     const dateToFormat = new Date();
     return (
       <React.Fragment>
-        <h1>Weather Forecast</h1>
-        <Moment format="YYYY/MM/DD HH:mm" date={dateToFormat}></Moment>
+        <div className="header">
+          <h1>Weather Forecast</h1>
+          <Moment
+            className="time"
+            format="YYYY/MM/DD HH:mm"
+            date={dateToFormat}
+          ></Moment>
+        </div>
       </React.Fragment>
     );
   }
